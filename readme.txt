@@ -1,0 +1,13 @@
+Files inside this folder:
+    - Visual Studio 2019 Solution Files
+        - MIPS.sln
+        - MIPS.vcxproj
+        - MIPS.vcxproj.filters
+    - Source Code Files
+        - MIPS.cpp
+    - Report folder
+        - Report
+    - Windows Executables And IO Files
+        - Windows
+    - Linux Executables And IO Files
+        - Linux
