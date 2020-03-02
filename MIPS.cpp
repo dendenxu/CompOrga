@@ -49,7 +49,7 @@ int main(int argc, char **argv)
     string output_file_name = "my1.txt";
     if (argc >= 2) input_file_name = argv[1];
     if (argc >= 3) output_file_name = argv[2];
-    MIPSAssembler A;                       // Instantiate the MIPS assembler
+    MIPSAssembler A;                      // Instantiate the MIPS assembler
     ifstream input_file(input_file_name); // open input file
     if (!input_file.is_open()) {
         cerr << "FATAL: Unable to open the file specified for input: \"" << input_file_name << '\"' << endl;
@@ -71,36 +71,36 @@ int main(int argc, char **argv)
     A.inst_map = {
         {"add", {'R', 0, 32}},
         {"sub", {'R', 0, 34}},
-        {"lw",  {'I', 35, 0}},
-        {"sw",  {'I', 43, 0}},
+        {"lw", {'I', 35, 0}},
+        {"sw", {'I', 43, 0}},
         {"and", {'R', 0, 36}},
-        {"or",  {'R', 0, 37}},
+        {"or", {'R', 0, 37}},
         {"nor", {'R', 0, 39}},
-        {"andi",{'I', 12, 0}},
+        {"andi", {'I', 12, 0}},
         {"ori", {'I', 13, 0}},
-        {"sll", {'R', 0,  0}},
-        {"srl", {'R', 0,  2}},
-        {"beq", {'I', 4,  0}},
-        {"bne", {'I', 5,  0}},
+        {"sll", {'R', 0, 0}},
+        {"srl", {'R', 0, 2}},
+        {"beq", {'I', 4, 0}},
+        {"bne", {'I', 5, 0}},
         {"slt", {'R', 0, 42}},
-        {"j",   {'J', 2,  0}},
-        {"jr",  {'R', 0,  8}},
-        {"jal", {'J', 3,  0}},
-        {"addi",{'I', 8,  0}},
-        {"lb",  {'I', 32, 0}},
-        {"sb",  {'I', 40, 0}},
+        {"j", {'J', 2, 0}},
+        {"jr", {'R', 0, 8}},
+        {"jal", {'J', 3, 0}},
+        {"addi", {'I', 8, 0}},
+        {"lb", {'I', 32, 0}},
+        {"sb", {'I', 40, 0}},
     };
     A.reg_map = {
-        {"$zero",0},
-        {"$at",  1},
-        {"$v0",  2},
-        {"$v1",  3},
-        {"$a0",  4},
-        {"$a1",  5},
-        {"$a2",  6},
-        {"$a3",  7},
-        {"$t0",  8},
-        {"$t1",  9},
+        {"$zero", 0},
+        {"$at", 1},
+        {"$v0", 2},
+        {"$v1", 3},
+        {"$a0", 4},
+        {"$a1", 5},
+        {"$a2", 6},
+        {"$a3", 7},
+        {"$t0", 8},
+        {"$t1", 9},
         {"$t2", 10},
         {"$t3", 11},
         {"$t4", 12},
@@ -125,7 +125,6 @@ int main(int argc, char **argv)
         {"$ra", 31},
     };
 
-
     // Execute convertion
     if (A.AssembleMIPS()) {
 
@@ -147,10 +146,10 @@ int main(int argc, char **argv)
         A.input.get();
         string buffer;
         getline(A.input, buffer);
-        cout << buffer << endl;                                                  // Dump current input line
+        cout << buffer << endl;                                                   // Dump current input line
         cout << "DUMP: Current line number is: " << A.source_line_number << endl; // Dump current line number
-        cout << "DUMP: Current buffer of output stringstream is:" << endl;       // Dump current output string stream
-        cout << A.output.rdbuf() << endl;                                        // Dump current output string stream
+        cout << "DUMP: Current buffer of output stringstream is:" << endl;        // Dump current output string stream
+        cout << A.output.rdbuf() << endl;                                         // Dump current output string stream
 
         output_file << A.output.rdbuf(); // Dump the stringstream to file
         output_file.close();             // Close output file
@@ -166,11 +165,11 @@ void MIPSAssembler::ChangeFormat(string &str)
      * Note that string::insert will insert things at the front of the postion specified
      * that is, inserting at string::end() is legal, while inserting at string::begin() is not
      */
-    str.insert(8,       1, ' ');
-    str.insert(16 + 1,  1, ' ');
-    str.insert(24 + 2,  1, ' ');
-    str.insert(32 + 3,  6, ' ');
-    str.insert(38 + 9,  1, ' ');
+    str.insert(8, 1, ' ');
+    str.insert(16 + 1, 1, ' ');
+    str.insert(24 + 2, 1, ' ');
+    str.insert(32 + 3, 6, ' ');
+    str.insert(38 + 9, 1, ' ');
     str.insert(43 + 10, 1, ' ');
     str.insert(48 + 11, 1, ' ');
     str.insert(53 + 12, 1, ' ');
@@ -257,17 +256,16 @@ bool MIPSAssembler::ReadRegister(stringstream &str_stream, map<string, int>::ite
 
 bool MIPSAssembler::AssembleMIPS()
 {
-#define PROCESS_REGISTER                              \
-    if (!ReadRegister(input, reg_iter)) return false; \
-    output << bitset<5>((*reg_iter).second);
+#define PROCESS_REGISTER(reg_iter) \
+    if (!ReadRegister(input, (reg_iter))) return false;
 
-#define PROCESS_FIRST_REGISTER \
-    Trim(input, ' ');          \
-    PROCESS_REGISTER
+#define PROCESS_FIRST_REGISTER(reg_iter) \
+    Trim(input, ' ');                    \
+    PROCESS_REGISTER(reg_iter)
 
-#define PROCESS_OTHER_REGISTER(ch)                   \
+#define PROCESS_OTHER_REGISTER(ch, reg_iter)         \
     if (!TrimAssert(input, ' ', (ch))) return false; \
-    PROCESS_REGISTER
+    PROCESS_REGISTER(reg_iter)
 
 #define PROCESS_CONSTANT(width)                       \
     if (!ReadConstant(input, constant)) return false; \
@@ -281,10 +279,12 @@ bool MIPSAssembler::AssembleMIPS()
     if (!TrimAssert(input, ' ', (ch))) return false; \
     PROCESS_CONSTANT(width)
 
-    int constant;                          // A constant
-    string str;                            // General purpose string
-    map<string, inst>::iterator inst_iter; // Reserve the result of std::map::find
-    map<string, int>::iterator reg_iter;   // Reserve the result of std::map::find
+    int constant;                           // A constant
+    string str;                             // General purpose string
+    map<string, inst>::iterator inst_iter;  // Reserve the result of std::map::find
+    map<string, int>::iterator reg_iter_rs; // Reserve the result of std::map::find
+    map<string, int>::iterator reg_iter_rt; // Reserve the result of std::map::find
+    map<string, int>::iterator reg_iter_rd; // Reserve the result of std::map::find
     while (1) {
         // Skip comment and empty line and discard leading space
         Trim(input, ' ');
@@ -321,26 +321,31 @@ bool MIPSAssembler::AssembleMIPS()
         case 'R':
             if ((*inst_iter).first == "jr") {
 
-                PROCESS_FIRST_REGISTER
+                PROCESS_FIRST_REGISTER(reg_iter_rd)
+                output << bitset<5>((*(reg_iter_rd)).second);
                 for (int i = 0; i < 3; i++) output << bitset<5>(0); // Zero fill
 
             } else if (((*inst_iter).first == "sll") || ((*inst_iter).first == "srl")) {
 
                 // Similar implementation as the I format(only these two instructions are of I format)
                 output << bitset<5>(0); // First five bit of sll and srl is filled with zero
-                PROCESS_FIRST_REGISTER
-                PROCESS_OTHER_REGISTER(',')
+                PROCESS_FIRST_REGISTER(reg_iter_rt)
+                PROCESS_OTHER_REGISTER(',', reg_iter_rs)
+                output << bitset<5>((*(reg_iter_rs)).second);
+                output << bitset<5>((*(reg_iter_rt)).second);
                 PROCESS_OTHER_CONSTANT(',', 5)
 
             } else {
 
                 // Process the first register
-                PROCESS_FIRST_REGISTER
+                PROCESS_FIRST_REGISTER(reg_iter_rd)
 
                 // Process two more register
-                PROCESS_OTHER_REGISTER(',')
-                PROCESS_OTHER_REGISTER(',')
-
+                PROCESS_OTHER_REGISTER(',', reg_iter_rs)
+                PROCESS_OTHER_REGISTER(',', reg_iter_rt)
+                output << bitset<5>((*(reg_iter_rs)).second);
+                output << bitset<5>((*(reg_iter_rt)).second);
+                output << bitset<5>((*(reg_iter_rd)).second);
                 output << bitset<5>(0); // Output shamt
             }
 
@@ -352,16 +357,20 @@ bool MIPSAssembler::AssembleMIPS()
 
             if (set<string>({"lw", "sw", "lb", "sb"}).count((*inst_iter).first)) {
 
-                PROCESS_FIRST_REGISTER
+                PROCESS_FIRST_REGISTER(reg_iter_rt)
                 PROCESS_OTHER_CONSTANT(',', 0)
-                PROCESS_OTHER_REGISTER('(')
+                PROCESS_OTHER_REGISTER('(', reg_iter_rs)
+                output << bitset<5>((*(reg_iter_rs)).second);
+                output << bitset<5>((*(reg_iter_rt)).second);
                 output << bitset<16>(constant);
                 if (!TrimAssert(input, ' ', ')')) return false;
 
             } else {
 
-                PROCESS_FIRST_REGISTER
-                PROCESS_OTHER_REGISTER(',')
+                PROCESS_FIRST_REGISTER(reg_iter_rt)
+                PROCESS_OTHER_REGISTER(',', reg_iter_rs)
+                output << bitset<5>((*(reg_iter_rs)).second);
+                output << bitset<5>((*(reg_iter_rt)).second);
                 PROCESS_OTHER_CONSTANT(',', 16)
             }
             break;
