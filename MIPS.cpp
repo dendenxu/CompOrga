@@ -267,9 +267,13 @@ bool MIPSAssembler::AssembleMIPS()
     if (!TrimAssert(input, ' ', (ch))) return false; \
     PROCESS_REGISTER(reg_iter)
 
-#define PROCESS_CONSTANT(width, scale)                \
-    if (!ReadConstant(input, constant)) return false; \
-    output << bitset<(width)>(constant * (scale));
+#define PROCESS_CONSTANT(width, scale)                                  \
+    if (!ReadConstant(input, constant)) return false;                   \
+    if (constant % (scale)) {                                           \
+        cout << "FATAL: Address " << constant << " is illegal" << endl; \
+        return false;                                                   \
+    }                                                                   \
+    output << bitset<(width)>(constant / (scale));
 
 #define PROCESS_FIRST_CONSTANT(width, scale) \
     Trim(input, ' ');                        \
