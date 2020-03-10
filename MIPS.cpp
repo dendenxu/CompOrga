@@ -165,11 +165,11 @@ void MIPSAssembler::ChangeFormat(string &str)
      * Note that string::insert will insert things at the front of the postion specified
      * that is, inserting at string::end() is legal, while inserting at string::begin() is not
      */
-    str.insert(8, 1, ' ');
-    str.insert(16 + 1, 1, ' ');
-    str.insert(24 + 2, 1, ' ');
-    str.insert(32 + 3, 6, ' ');
-    str.insert(38 + 9, 1, ' ');
+    str.insert(8,       1, ' ');
+    str.insert(16 + 1,  1, ' ');
+    str.insert(24 + 2,  1, ' ');
+    str.insert(32 + 3,  6, ' ');
+    str.insert(38 + 9,  1, ' ');
     str.insert(43 + 10, 1, ' ');
     str.insert(48 + 11, 1, ' ');
     str.insert(53 + 12, 1, ' ');
@@ -267,17 +267,17 @@ bool MIPSAssembler::AssembleMIPS()
     if (!TrimAssert(input, ' ', (ch))) return false; \
     PROCESS_REGISTER(reg_iter)
 
-#define PROCESS_CONSTANT(width)                       \
+#define PROCESS_CONSTANT(width, scale)                \
     if (!ReadConstant(input, constant)) return false; \
-    output << bitset<(width)>(constant);
+    output << bitset<(width)>(constant * (scale));
 
-#define PROCESS_FIRST_CONSTANT(width) \
-    Trim(input, ' ');                 \
-    PROCESS_CONSTANT(width)
+#define PROCESS_FIRST_CONSTANT(width, scale) \
+    Trim(input, ' ');                        \
+    PROCESS_CONSTANT(width, scale)
 
-#define PROCESS_OTHER_CONSTANT(ch, width)            \
+#define PROCESS_OTHER_CONSTANT(ch, width, scale)     \
     if (!TrimAssert(input, ' ', (ch))) return false; \
-    PROCESS_CONSTANT(width)
+    PROCESS_CONSTANT(width, scale)
 
     int constant;                           // A constant
     string str;                             // General purpose string
@@ -333,7 +333,7 @@ bool MIPSAssembler::AssembleMIPS()
                 PROCESS_OTHER_REGISTER(',', reg_iter_rs)
                 output << bitset<5>((*(reg_iter_rs)).second);
                 output << bitset<5>((*(reg_iter_rt)).second);
-                PROCESS_OTHER_CONSTANT(',', 5)
+                PROCESS_OTHER_CONSTANT(',', 5, 1)
 
             } else {
 
@@ -358,7 +358,7 @@ bool MIPSAssembler::AssembleMIPS()
             if (set<string>({"lw", "sw", "lb", "sb"}).count((*inst_iter).first)) {
 
                 PROCESS_FIRST_REGISTER(reg_iter_rt)
-                PROCESS_OTHER_CONSTANT(',', 0)
+                PROCESS_OTHER_CONSTANT(',', 0, 1)
                 PROCESS_OTHER_REGISTER('(', reg_iter_rs)
                 output << bitset<5>((*(reg_iter_rs)).second);
                 output << bitset<5>((*(reg_iter_rt)).second);
@@ -371,15 +371,14 @@ bool MIPSAssembler::AssembleMIPS()
                 PROCESS_OTHER_REGISTER(',', reg_iter_rs)
                 output << bitset<5>((*(reg_iter_rs)).second);
                 output << bitset<5>((*(reg_iter_rt)).second);
-                PROCESS_OTHER_CONSTANT(',', 16)
+                PROCESS_OTHER_CONSTANT(',', 16, ((*inst_iter).first == "beq") || ((*inst_iter).first == "bne") ? 4 : 1)
             }
             break;
 
         case 'J':
             Trim(input, ' ');
             // Read in the constant(immediate value)
-            if (!ReadConstant(input, constant)) return false;
-            output << bitset<26>(constant);
+            PROCESS_CONSTANT(26, 4)
             break;
         }
         if (!CheckLineEnd(input)) return false;
