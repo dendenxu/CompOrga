@@ -10,9 +10,12 @@ module GPIO(input wire clk,
 				output wire led_pen);
 
 	
-	P2S #(.DATA_BITS(16), .DATA_COUNT_BITS(4)) // use P2S to output
+	wire [15:0]P_Data_Input = {P_Data[0], P_Data[1], P_Data[2], P_Data[3], P_Data[4], P_Data[5], P_Data[6], P_Data[7], 
+										P_Data[8], P_Data[9], P_Data[10], P_Data[11], P_Data[12], P_Data[13], P_Data[14], P_Data[15]};
+	assign led_sout = ~led_sout_temp;
+	P2S #(.DATA_BITS(16), .DATA_COUNT_BITS(4), .DIR(1'b1)) // use P2S to output
 		LED_P2S (.clk(clk), .rst(rst), .Start(Start), 
-				 .PData(P_Data), .s_clk(led_clk), .s_clrn(led_clrn), 
-				 .sout(led_sout), .EN(led_pen));
+				 .PData(P_Data_Input), .s_clk(led_clk), .s_clrn(led_clrn), 
+				 .sout(led_sout_temp), .EN(led_pen));
 
 endmodule

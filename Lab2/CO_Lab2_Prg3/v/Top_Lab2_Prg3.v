@@ -1,16 +1,18 @@
 `timescale 1ns / 1ps
 
 module Top_Lab2_Prg3(input wire clk_100mhz, // clock signal
-							input wire [4:0]K_ROW, // keyboard row input
+							input wire [3:0]K_COL, // keyboard row input
 							output wire SEGCLK, // LED output
 							output wire SEGDT,
 							output wire SEGEN,
-							output wire SEGCLR);
+							output wire SEGCLR,
+							output wire [4:0]K_ROW);
 	
 	wire [31:0]Div; // clock div
-	wire [2:0]KB_Hex_ROW; // Hex form of K_ROL signal 
-	wire [15:0]Hexs = {13'd0, KB_Hex_ROW}; // real output value of 7-segment
+	wire [2:0]KB_Hex_COL; // Hex form of K_ROL signal 
+	wire [15:0]Hexs = {13'd0, KB_Hex_COL}; // real output value of 7-segment
 	
+	assign K_ROW = 5'b00000;
 	// clock div module
 	clkdiv clkdiv_M(.clk(clk_100mhz), 
 						 .clkdiv(Div[31:0])); 
@@ -29,8 +31,8 @@ module Top_Lab2_Prg3(input wire clk_100mhz, // clock signal
 							.seg_clk(SEGCLK));
 							
 	// transform K_ROL signal to its Hex form
-	KB_Process KB_Process_M(.clk(Div[27]),
-							.K_ROW(K_ROW),
-							.KB_Hex_ROW(KB_Hex_ROW));
+	KB_Process KB_Process_M(.clk(clk_100mhz),
+							.K_COL(K_COL),
+							.KB_Hex_COL(KB_Hex_COL));
 
 endmodule

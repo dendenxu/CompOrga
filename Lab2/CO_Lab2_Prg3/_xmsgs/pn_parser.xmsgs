@@ -8,28 +8,7 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/ISE Project/CO_Lab2/CO_Lab2_Prg3/v/Display.v&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/ISE Project/CO_Lab2/CO_Lab2_Prg3/v/Hex2Seg.v&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/ISE Project/CO_Lab2/CO_Lab2_Prg3/v/HexTo8Seg.v&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/ISE Project/CO_Lab2/CO_Lab2_Prg3/v/KB_Process.v&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/ISE Project/CO_Lab2/CO_Lab2_Prg3/v/P2S.v&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/ISE Project/CO_Lab2/CO_Lab2_Prg3/v/SHIFT64.v&quot; into library work</arg>
-</msg>
-
 <msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/ISE Project/CO_Lab2/CO_Lab2_Prg3/v/Top_Lab2_Prg3.v&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/ISE Project/CO_Lab2/CO_Lab2_Prg3/v/clkdiv.v&quot; into library work</arg>
 </msg>
 
 </messages>
