@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    11:32:37 07/08/2020 
+// Create Date:    08:24:54 10/26/2018 
 // Design Name: 
 // Module Name:    clkdiv 
 // Project Name: 
@@ -18,21 +18,11 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module clkdiv(
-	clk,
-	rst,
-	clkdiv
-    );
-
-	input wire clk, rst;
-	output reg [15:0] clkdiv;
-	
-	initial begin
-		clkdiv = 16'h0000;
-	end
-
-	always @(posedge clk or posedge rst) begin
-		if (rst) clkdiv = 16'h0000;
-		else clkdiv = clkdiv + 1;
-	end
+module clkdiv(input clk,
+					input rst,
+					output reg[31:0]clkdiv=0);
+	always @(posedge clk or posedge rst )begin
+		if (rst) clkdiv<=0;
+		else clkdiv <=clkdiv+1'b1;
+	end   
 endmodule

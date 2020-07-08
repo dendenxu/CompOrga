@@ -60,11 +60,11 @@ module TOP_single_CPU(
 	
 	single_pc_plus_4 #(.N(32)) pc_plus_4(.i_pc(o_pc), .o_pc(o_pc_added));
 	
-	InstructionMemory imem(.ADDRA(o_pc[9:0]), .CLKA(clk), .DOUTA(INS));
+	InstructionMemory imem(.addra(o_pc[9:0]), .clka(clk), .douta(INS));
 	
 	single_ctrl ctrl(.rst(rst), .OP(INS[31:26]), 
 	                 .RegDst(RegDst), .RegWrite(RegWrite), .Branch(Branch), .Jump(Jump),
-                    .MemtoReg(MemtoReg), .Memread(Memread), .MemWrite(MemWrite), 
+                    .MemtoReg(MemtoReg), .MemRead(Memread), .MemWrite(MemWrite), 
                     .ALUsrc(ALUsrc), .ALUop(ALUop),
 						  .LED(LED));
 	
@@ -77,7 +77,7 @@ module TOP_single_CPU(
 							 .i_wreg(wreg), .i_wdata(wdata_reg), .i_wen(RegWrite),
 							 .o_op1(op_1), .o_op2(op_2), .o_op3(op_3));
 							 
-	DataMemory dmem(.ADDRA(ALUout), .DINA(wdata_mem), .WEA(MemWrite), .CLKA(clk), .DOUTA(DMout));
+	DataMemory dmem(.addra(ALUout), .dina(wdata_mem), .wea(MemWrite), .clka(clk), .douta(DMout));
 							 
 	single_signext signext(.i_16(INS[15:0]), .o_32(Sext_32));
 	
@@ -97,6 +97,7 @@ module TOP_single_CPU(
 	
 	MUX4to1b4 m0(.A(op_3[15:0]), .B(op_3[31:16]), .C(o_pc), .D(cnt), .SW(SW[6:5]), .OUT(DIS));
 	
+    disp_num d0(clk, DIS, {4{0}}, {4{0}}, 1'b0, AN, SEGMENT);
 	//DisplaySync模块找不到了，请在校的朋友帮忙加一下，传入的数字信息为DIS
 	//IPcore中没有内容，请添加coe
 	//引脚约束请按照个人喜好添加
