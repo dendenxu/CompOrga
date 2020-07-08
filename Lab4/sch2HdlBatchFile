@@ -1,2 +1,0 @@
-sch2hdl,-sympath,D:/Documents/Desktop/MIPS/Lab4/ipcore_dir,-intstyle,ise,-family,kintex7,-verilog,D:/Documents/Desktop/MIPS/Lab4/DisplaySync.vf,-w,D:/Documents/Desktop/MIPS/Lab4/DisplaySync.sch
-sch2hdl,-sympath,D:/Documents/Desktop/MIPS/Lab4/ipcore_dir,-intstyle,ise,-family,kintex7,-verilog,D:/Documents/Desktop/MIPS/Lab4/disp_num.vf,-w,D:/Documents/Desktop/MIPS/Lab4/disp_num.sch

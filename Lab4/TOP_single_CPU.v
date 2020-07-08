@@ -50,7 +50,11 @@ module TOP_single_CPU(
 	wire [31:0] wdata_reg, wdata_mem;
 	wire RegDst, RegWrite, Branch, Jump, MemtoReg, MemRead, MemWrite, ALUsrc, PCBranch, zero;
 	
-	assign clk = (SW[7] == 1'b1) ? clk_s : clk_m;
+    wire clk100ms;
+
+    clk_100ms c100(.clk(clk_s), .clk100ms(clk100ms));
+
+	assign clk = (SW[7] == 1'b1) ? clk100ms : clk_m;
 	assign PCBranch = Branch & zero;
 	assign A = op_1;
 	assign wdata_mem = op_2;
@@ -97,7 +101,7 @@ module TOP_single_CPU(
 	
 	MUX4to1b4 m0(.A(op_3[15:0]), .B(op_3[31:16]), .C(o_pc), .D(cnt), .SW(SW[6:5]), .OUT(DIS));
 	
-    disp_num d0(clk, DIS, {4{0}}, {4{0}}, 1'b0, AN, SEGMENT);
+    dispnum d0(clk_s, DIS, 4'b0000, 4'b0000, AN, SEGMENT);
 	//DisplaySync模块找不到了，请在校的朋友帮忙加一下，传入的数字信息为DIS
 	//IPcore中没有内容，请添加coe
 	//引脚约束请按照个人喜好添加
