@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="lab4.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TOP_single_CPU.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="TOP_single_CPU.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="TOP_single_CPU.xst"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="clkdiv.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="clkdiv.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="clkdiv.xst"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_add.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_add.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_add.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_alu.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_alu.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_alu.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_alu_ctrl.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_alu_ctrl.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_alu_ctrl.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_ctrl.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_ctrl.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_ctrl.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_gpr.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_gpr.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_gpr.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_mux.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_mux.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_mux.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_pc.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_pc.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_pc.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_pc_plus_4.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_pc_plus_4.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_pc_plus_4.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_signext.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_signext.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_signext.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="single_srl_2.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="single_srl_2.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="single_srl_2.xst"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+
+</generated_project>
