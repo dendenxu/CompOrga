@@ -35,11 +35,11 @@ module single_alu_ctrl(
 	assign BEQ =  ALUop[0] & ~ALUop[1];
 	assign R   = ~ALUop[0] &  ALUop[1];
 
-	assign OP_ADD = LS |  (~FUNC[2] & ~FUNC[3] & ~FUNC[4] & ~FUNC[5] & R);
-	assign OP_SUB = BEQ | (~FUNC[2] & ~FUNC[3] &  FUNC[4] & ~FUNC[5] & R);
-	assign OP_OR  = ~FUNC[2] &  FUNC[3] & ~FUNC[4] &  FUNC[5] & R;
-	assign OP_AND = ~FUNC[2] &  FUNC[3] & ~FUNC[4] & ~FUNC[5] & R;
-	assign OP_SLT =  FUNC[2] & ~FUNC[3] &  FUNC[4] & ~FUNC[5] & R;
+	assign OP_ADD = LS |  (~FUNC[3] & ~FUNC[2] & ~FUNC[1] & ~FUNC[0] & R);
+	assign OP_SUB = BEQ | (~FUNC[3] & ~FUNC[2] &  FUNC[1] & ~FUNC[0] & R);
+	assign OP_OR  = ~FUNC[3] &  FUNC[2] & ~FUNC[1] &  FUNC[0] & R;
+	assign OP_AND = ~FUNC[3] &  FUNC[2] & ~FUNC[1] & ~FUNC[0] & R;
+	assign OP_SLT =  FUNC[3] & ~FUNC[2] &  FUNC[1] & ~FUNC[0] & R;
 	
 	assign OP[3] = 0;
 	assign OP[2] =  OP_SUB |  OP_SLT;
