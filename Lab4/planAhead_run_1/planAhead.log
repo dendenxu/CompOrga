@@ -103,3 +103,13 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 Phase 0 | Netlist Checksum: f0098893
 link_design: Time (s): elapsed = 00:00:16 . Memory (MB): peak = 841.727 ; gain = 351.371
+exit
+ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+ (See D:/Documents/Desktop/MIPS/Lab4\planAhead_pid3116.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Wed Jul 08 19:45:40 2020...
+INFO: [Common 17-83] Releasing license: PlanAhead

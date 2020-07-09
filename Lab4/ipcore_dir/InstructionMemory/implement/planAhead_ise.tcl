@@ -45,7 +45,7 @@
 # PART OF THIS FILE AT ALL TIMES.
 
 
-set device xc7k160tffg676-1
+set device xc7k160tffg676-2l
 set projName InstructionMemory
 set design InstructionMemory
 set projDir [file dirname [info script]]

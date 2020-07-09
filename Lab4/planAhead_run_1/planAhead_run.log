@@ -100,3 +100,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 Phase 0 | Netlist Checksum: f0098893
 link_design: Time (s): elapsed = 00:00:16 . Memory (MB): peak = 841.727 ; gain = 351.371
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Wed Jul 08 19:45:40 2020...
+INFO: [Common 17-83] Releasing license: PlanAhead

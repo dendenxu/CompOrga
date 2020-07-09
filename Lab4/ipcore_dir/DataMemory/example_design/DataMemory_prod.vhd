@@ -78,12 +78,12 @@
 --    C_FAMILY                    :  kintex7 
 --    C_XDEVICEFAMILY             :  kintex7 
 --    C_INTERFACE_TYPE            :  0 
---    C_ENABLE_32BIT_ADDRESS      :  0 
+--    C_ENABLE_32BIT_ADDRESS      :  1 
 --    C_AXI_TYPE                  :  1 
 --    C_AXI_SLAVE_TYPE            :  0 
 --    C_AXI_ID_WIDTH              :  4 
 --    C_MEM_TYPE                  :  0 
---    C_BYTE_SIZE                 :  9 
+--    C_BYTE_SIZE                 :  8 
 --    C_ALGORITHM                 :  1 
 --    C_PRIM_TYPE                 :  1 
 --    C_LOAD_INIT_FILE            :  1 
@@ -97,28 +97,28 @@
 --    C_INITA_VAL                 :  0 
 --    C_HAS_ENA                   :  0 
 --    C_HAS_REGCEA                :  0 
---    C_USE_BYTE_WEA              :  0 
---    C_WEA_WIDTH                 :  1 
+--    C_USE_BYTE_WEA              :  1 
+--    C_WEA_WIDTH                 :  4 
 --    C_WRITE_MODE_A              :  WRITE_FIRST 
 --    C_WRITE_WIDTH_A             :  32 
 --    C_READ_WIDTH_A              :  32 
 --    C_WRITE_DEPTH_A             :  1024 
 --    C_READ_DEPTH_A              :  1024 
---    C_ADDRA_WIDTH               :  10 
+--    C_ADDRA_WIDTH               :  32 
 --    C_HAS_RSTB                  :  0 
 --    C_RST_PRIORITY_B            :  CE 
 --    C_RSTRAM_B                  :  0 
 --    C_INITB_VAL                 :  0 
 --    C_HAS_ENB                   :  0 
 --    C_HAS_REGCEB                :  0 
---    C_USE_BYTE_WEB              :  0 
---    C_WEB_WIDTH                 :  1 
+--    C_USE_BYTE_WEB              :  1 
+--    C_WEB_WIDTH                 :  4 
 --    C_WRITE_MODE_B              :  WRITE_FIRST 
 --    C_WRITE_WIDTH_B             :  32 
 --    C_READ_WIDTH_B              :  32 
 --    C_WRITE_DEPTH_B             :  1024 
 --    C_READ_DEPTH_B              :  1024 
---    C_ADDRB_WIDTH               :  10 
+--    C_ADDRB_WIDTH               :  32 
 --    C_HAS_MEM_OUTPUT_REGS_A     :  0 
 --    C_HAS_MEM_OUTPUT_REGS_B     :  0 
 --    C_HAS_MUX_OUTPUT_REGS_A     :  0 
@@ -156,8 +156,8 @@ ENTITY DataMemory_prod IS
     RSTA       : IN STD_LOGIC;  --opt port
     ENA        : IN STD_LOGIC;  --optional port
     REGCEA     : IN STD_LOGIC;  --optional port
-    WEA        : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA      : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    WEA        : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    ADDRA      : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     DINA       : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     DOUTA      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
@@ -166,8 +166,8 @@ ENTITY DataMemory_prod IS
     RSTB       : IN STD_LOGIC;  --opt port
     ENB        : IN STD_LOGIC;  --optional port
     REGCEB     : IN STD_LOGIC;  --optional port
-    WEB        : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRB      : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    WEB        : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    ADDRB      : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     DINB       : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     DOUTB      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
@@ -176,7 +176,7 @@ ENTITY DataMemory_prod IS
     INJECTDBITERR  : IN STD_LOGIC; --optional port
     SBITERR        : OUT STD_LOGIC; --optional port
     DBITERR        : OUT STD_LOGIC; --optional port
-    RDADDRECC      : OUT STD_LOGIC_VECTOR(9 DOWNTO 0); --optional port
+    RDADDRECC      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); --optional port
  -- AXI BMG Input and Output Port Declarations
 
     -- AXI Global Signals
@@ -189,7 +189,7 @@ ENTITY DataMemory_prod IS
     S_AXI_AWVALID                  : IN  STD_LOGIC;
     S_AXI_AWREADY                  : OUT STD_LOGIC;
     S_AXI_WDATA                    : IN  STD_LOGIC_VECTOR(31  DOWNTO 0);
-    S_AXI_WSTRB                    : IN  STD_LOGIC_VECTOR(0  DOWNTO 0);
+    S_AXI_WSTRB                    : IN  STD_LOGIC_VECTOR(3  DOWNTO 0);
     S_AXI_WLAST                    : IN  STD_LOGIC;
     S_AXI_WVALID                   : IN  STD_LOGIC;
     S_AXI_WREADY                   : OUT STD_LOGIC;
@@ -218,7 +218,7 @@ ENTITY DataMemory_prod IS
     S_AXI_INJECTDBITERR            : IN  STD_LOGIC;
     S_AXI_SBITERR                  : OUT STD_LOGIC;
     S_AXI_DBITERR                  : OUT STD_LOGIC;
-    S_AXI_RDADDRECC                : OUT STD_LOGIC_VECTOR(9  DOWNTO 0);
+    S_AXI_RDADDRECC                : OUT STD_LOGIC_VECTOR(31  DOWNTO 0);
     S_ARESETN                      : IN  STD_LOGIC
 
 
@@ -231,17 +231,17 @@ ARCHITECTURE xilinx OF DataMemory_prod IS
 
   COMPONENT DataMemory_exdes IS
   PORT (
+
       --Port A
   
-    WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA          : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    WEA            : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    ADDRA          : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
     DINA           : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
     DOUTA          : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
     CLKA       : IN STD_LOGIC
-
 
 
 
@@ -252,6 +252,7 @@ BEGIN
 
   bmg0 : DataMemory_exdes
     PORT MAP (
+
       --Port A
   
       WEA        => WEA,
@@ -262,7 +263,6 @@ BEGIN
       DOUTA      => DOUTA,
 
       CLKA       => CLKA
-
 
 
       );

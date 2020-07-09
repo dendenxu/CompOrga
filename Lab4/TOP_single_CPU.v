@@ -58,13 +58,13 @@ module TOP_single_CPU(
 	assign PCBranch = Branch & zero;
 	assign A = op_1;
 	assign wdata_mem = op_2;
-	assign addr_j = {o_pc_added[31:28], addr_j_ls2[27:0]};
+	assign addr_j = {o_pc[31:28], INS[27:0]};
 	
 	single_pc #(.N(32)) pc(.i_pc(i_pc), .o_pc(o_pc), .clk(clk), .rst(rst));
 	
 	single_pc_plus_4 #(.N(32)) pc_plus_4(.i_pc(o_pc), .o_pc(o_pc_added));
 	
-	InstructionMemory imem(.addra(o_pc[9:0]), .clka(clk), .douta(INS));
+	InstructionMemory imem(.addra(o_pc[9:0]), .clka(clk_s), .douta(INS));
 	
 	single_ctrl ctrl(.rst(rst), .OP(INS[31:26]), 
 	                 .RegDst(RegDst), .RegWrite(RegWrite), .Branch(Branch), .Jump(Jump),
@@ -81,7 +81,7 @@ module TOP_single_CPU(
 							 .i_wreg(wreg), .i_wdata(wdata_reg), .i_wen(RegWrite),
 							 .o_op1(op_1), .o_op2(op_2), .o_op3(op_3));
 							 
-	DataMemory dmem(.addra(ALUout), .dina(wdata_mem), .wea(MemWrite), .clka(clk), .douta(DMout));
+	DataMemory dmem(.addra(ALUout), .dina(wdata_mem), .wea(MemWrite), .clka(clk_s), .douta(DMout));
 							 
 	single_signext signext(.i_16(INS[15:0]), .o_32(Sext_32));
 	
@@ -92,14 +92,15 @@ module TOP_single_CPU(
 	single_mux #(.N(32)) mux_data(.A(ALUout), .B(DMout), .S(wdata_reg), .Ctrl(MemtoReg));
 	
 	//我们这里不使用+4，因此不用移位
-	//single_srl_2 #(.N(32)) srl_Sext_32(.i_in(Sext_32), .o_out(Sext_32_ls2));
-	single_srl_2 #(.N(28)) srl_addr_j(.i_in(INS[25:0]), .o_out(addr_j_ls2));
+	// single_srl_2 #(.N(32)) srl_Sext_32(.i_in(Sext_32), .o_out(Sext_32_ls2));
+	// single_srl_2 #(.N(28)) srl_addr_j(.i_in(INS[25:0]), .o_out(addr_j_ls2));
 
 	single_add addr_b_add(.i_op1(o_pc_added), .i_op2(Sext_32), .o_out(addr_b));
 	
 	clkdiv c0(.clk(clk), .rst(rst), .clkdiv(cnt));
 	
-	MUX4to1b4 m0(.A(op_3[15:0]), .B(op_3[31:16]), .C(o_pc), .D(cnt), .SW(SW[6:5]), .OUT(DIS));
+    // We're pringting the Memory content of the current instruction
+	MUX4to1b4 m0(.A(op_3[15:0]), .B(op_3[31:16]), .C(o_pc), .D(wdata_reg), .SW(SW[6:5]), .OUT(DIS));
 	
     dispnum d0(clk_s, DIS, 4'b0000, 4'b0000, AN, SEGMENT);
 	//DisplaySync模块找不到了，请在校的朋友帮忙加一下，传入的数字信息为DIS

@@ -3,7 +3,6 @@ DataMemory.asy
 DataMemory.gise
 DataMemory.mif
 DataMemory.ngc
-DataMemory.sym
 DataMemory.v
 DataMemory.veo
 DataMemory.xco

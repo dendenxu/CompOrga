@@ -49,8 +49,8 @@
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 DataMemory your_instance_name (
   .clka(clka), // input clka
-  .wea(wea), // input [0 : 0] wea
-  .addra(addra), // input [9 : 0] addra
+  .wea(wea), // input [3 : 0] wea
+  .addra(addra), // input [31 : 0] addra
   .dina(dina), // input [31 : 0] dina
   .douta(douta) // output [31 : 0] douta
 );

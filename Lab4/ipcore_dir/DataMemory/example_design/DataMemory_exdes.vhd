@@ -90,8 +90,8 @@ ENTITY DataMemory_exdes IS
   PORT (
       --Inputs - Port A
   
-    WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA          : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    WEA            : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    ADDRA          : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
     DINA           : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
@@ -117,8 +117,8 @@ ARCHITECTURE xilinx OF DataMemory_exdes IS
   PORT (
       --Port A
   
-    WEA        : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA      : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    WEA        : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    ADDRA      : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
     DINA       : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   

@@ -41,9 +41,9 @@ module single_alu_ctrl(
 	assign OP_AND = ~FUNC[2] &  FUNC[3] & ~FUNC[4] & ~FUNC[5] & R;
 	assign OP_SLT =  FUNC[2] & ~FUNC[3] &  FUNC[4] & ~FUNC[5] & R;
 	
-	assign OP[0] = 0;
-	assign OP[1] =  OP_SUB |  OP_SLT;
-	assign OP[2] = ~OP_OR  & ~OP_AND;
-	assign OP[3] =  OP_OR  |  OP_SLT;
+	assign OP[3] = 0;
+	assign OP[2] =  OP_SUB |  OP_SLT;
+	assign OP[1] = ~OP_OR  & ~OP_AND;
+	assign OP[0] =  OP_OR  |  OP_SLT;
 
 endmodule
