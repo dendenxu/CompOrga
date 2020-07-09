@@ -25,7 +25,7 @@ module single_alu_ctrl(
     );
 
 	input wire  [1:0] ALUop;
-	inout wire  [5:0] FUNC;
+	input wire  [5:0] FUNC;
 	output wire [3:0] OP;
 	
 	wire LS, BEQ, R;

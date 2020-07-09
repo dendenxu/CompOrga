@@ -41,10 +41,10 @@ module TOP_single_CPU(
 	wire [15:0] cnt;
 	wire [15:0] DIS;
 	wire [31:0] i_pc, o_pc, o_pc_added, pc_branch;
-   wire [31:0]	INS;
+    wire [31:0]	INS;
 	wire [31:0] Sext_32, Sext_32_ls2;
 	wire [27:0] addr_j_ls2;
-   wire [31:0]	op_1, op_2, op_3;
+    wire [31:0]	op_1, op_2, op_3;
 	wire [31:0] A, B, ALUout, DMout;
 	wire [31:0] addr_b, addr_j;
 	wire [31:0] wdata_reg, wdata_mem;
@@ -86,7 +86,7 @@ module TOP_single_CPU(
 	single_signext signext(.i_16(INS[15:0]), .o_32(Sext_32));
 	
 	single_mux #(.N(5))  mux_wreg(.A(INS[20:16]), .B(INS[15:11]), .S(wreg), .Ctrl(RegDst));
-	single_mux #(.N(32)) mux_alui(.A(OP_2), .B(Sext_32), .S(B), .Ctrl(ALUsrc));
+	single_mux #(.N(32)) mux_alui(.A(op_2), .B(Sext_32), .S(B), .Ctrl(ALUsrc));
 	single_mux #(.N(32)) mux_pc_b(.A(o_pc_added), .B(addr_b), .S(pc_branch), .Ctrl(PCBranch));
 	single_mux #(.N(32)) mux_pc_j(.A(pc_branch), .B(addr_j), .S(i_pc), .Ctrl(Jump));
 	single_mux #(.N(32)) mux_data(.A(ALUout), .B(DMout), .S(wdata_reg), .Ctrl(MemtoReg));
@@ -100,7 +100,7 @@ module TOP_single_CPU(
 	clkdiv c0(.clk(clk), .rst(rst), .clkdiv(cnt));
 	
     // We're pringting the Memory content of the current instruction
-	MUX4to1b4 m0(.A(op_3[15:0]), .B(op_3[31:16]), .C(o_pc), .D(wdata_reg), .SW(SW[6:5]), .OUT(DIS));
+	MUX4to1b4 m0(.A(op_3[15:0]), .B(op_3[31:16]), .C(o_pc), .D(cnt), .SW(SW[6:5]), .OUT(DIS));
 	
     dispnum d0(clk_s, DIS, 4'b0000, 4'b0000, AN, SEGMENT);
 	//DisplaySync模块找不到了，请在校的朋友帮忙加一下，传入的数字信息为DIS
