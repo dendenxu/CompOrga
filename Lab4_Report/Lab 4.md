@@ -708,7 +708,7 @@ MEMORY_INITIALIZATION_VECTOR =
 
 * 实验截图：
 
-  <img src = "Lab 4.assets/image-20200710200942266.png">![image-20200710194321855](Lab 4.assets/image-20200710194321855.png)
+  <img src = "Lab 4.assets/image-20200710200942266.png"><img src = "Lab 4.assets/image-20200710194321855.png">
 
   图1：执行前，PC = 1，LED第3灯亮
 
@@ -728,7 +728,7 @@ MEMORY_INITIALIZATION_VECTOR =
 
 * 实验截图：
 
-  ![image-20200710203728635](Lab 4.assets/image-20200710203728635.png)![image-20200710204030407](Lab 4.assets/image-20200710204030407.png)
+  <img src="Lab 4.assets/image-20200710203728635.png"><img src = "Lab 4.assets/image-20200710204030407.png">
 
   图1：PC = 1，LED第3灯亮
 
