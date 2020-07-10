@@ -36,11 +36,12 @@ module TOP_single_CPU(
 	output wire [7:0] SEGMENT;
 	output wire [3:0] AN;
     
-    input wire [3:0]K_COL; // keyboard row input
-    output wire [3:0]K_ROW;
+    input wire [1:0]K_COL; // keyboard row input
+    wire [1:0]K_COL_DE; // keyboard row input
+    output wire [4:0]K_ROW;
     wire clk_m, rst;
-    assign clk_m = K_COL[0];
-    assign rst = K_COL[1];
+    assign clk_m = ~K_COL_DE[0];
+    assign rst = ~K_COL_DE[1];
 	
 	wire clk;
 	wire [5:0] wreg;
@@ -58,14 +59,21 @@ module TOP_single_CPU(
 	wire [31:0] wdata_reg, wdata_mem;
 	wire RegDst, RegWrite, Branch, Jump, MemtoReg, MemRead, MemWrite, ALUsrc, PCBranch, zero;
 	
-    wire clk100ms;
+    wire clk1000ms;
+    wire clk1ms;
+    
 
 	assign K_ROW = 5'b00000;
 	// clock div module
 
-    clk_100ms c100(.clk(clk_s), .clk100ms(clk100ms));
+    clk_100ms #(.DIV_1S(1)) c1000(.clk(clk_s), .clk100ms(clk1000ms));
+    clk_100ms #(.DIV_1S(1000)) c1(.clk(clk_s), .clk100ms(clk1ms));
+    
+    pbdebounce db1(.clk_1ms(clk1ms), .button(K_COL[0]), .pbreg(K_COL_DE[0]));
+    pbdebounce db2(.clk_1ms(clk1ms), .button(K_COL[1]), .pbreg(K_COL_DE[1]));
 
-	assign clk = (SW[7] == 1'b1) ? clk100ms : clk_m;
+
+	assign clk = (SW[7] == 1'b1) ? clk1000ms : clk_m;
 	assign PCBranch = Branch & zero;
 	assign A = op_1;
 	assign wdata_mem = op_2;

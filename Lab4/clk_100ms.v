@@ -22,17 +22,18 @@ module clk_100ms(
          input wire clk,
          output reg clk100ms
        );
-reg [31:0] cnt;
-always @ (posedge clk)
-  begin
-    if (cnt < 50_000_000)
+    parameter DIV_1S = 1000;
+    reg [31:0] cnt;
+    always @ (posedge clk)
       begin
-        cnt <= cnt + 1;
+        if (cnt < 50_000_000/DIV_1S)
+          begin
+            cnt <= cnt + 1;
+          end
+        else
+          begin
+            cnt <= 0;
+            clk100ms <= ~clk100ms;
+          end
       end
-    else
-      begin
-        cnt <= 0;
-        clk100ms <= ~clk100ms;
-      end
-  end
 endmodule
