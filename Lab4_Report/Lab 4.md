@@ -57,7 +57,7 @@
 
 ### 组织结构图
 
-![page0](..\page0.png)
+<img src = "../page0.png">
 
 
 
