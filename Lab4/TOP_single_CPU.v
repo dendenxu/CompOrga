@@ -20,19 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 module TOP_single_CPU(
 	clk_s,   //系统时钟信号
-	clk_m,   //手动时钟信号
-	rst,     //复位信号
+	// clk_m,   //手动时钟信号
+	// rst,     //复位信号
 	SW,      //开关， SW[7]选择时钟（开启为系统时钟，关闭为手动时钟）， SW[6:5]选择数码管显示， SW[4:0]选择寄存器
 	LED,     //LED输出， LED[4]: J, LED[3]:BEQ, LED[2]:LW, LED[1]:SW, LED[0]:R
 	SEGMENT, //七段数码管输出
-	AN       //七段数码管使能
+	AN,      //七段数码管使能
+    K_COL,
+    K_ROW
     );
 	
-	input  wire clk_s, clk_m, rst;
+	input  wire clk_s;
 	input  wire [7:0] SW;
 	output wire [4:0] LED;
 	output wire [7:0] SEGMENT;
 	output wire [3:0] AN;
+    
+    input wire [3:0]K_COL; // keyboard row input
+    output wire [3:0]K_ROW;
+    wire clk_m, rst;
+    assign clk_m = K_COL[0];
+    assign rst = K_COL[1];
 	
 	wire clk;
 	wire [5:0] wreg;
@@ -51,6 +59,9 @@ module TOP_single_CPU(
 	wire RegDst, RegWrite, Branch, Jump, MemtoReg, MemRead, MemWrite, ALUsrc, PCBranch, zero;
 	
     wire clk100ms;
+
+	assign K_ROW = 5'b00000;
+	// clock div module
 
     clk_100ms c100(.clk(clk_s), .clk100ms(clk100ms));
 
