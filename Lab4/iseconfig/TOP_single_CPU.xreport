@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2020-07-10T14:52:40</DateModified>
+  <DateModified>2020-07-10T15:27:53</DateModified>
   <ModuleName>TOP_single_CPU</ModuleName>
-  <SummaryTimeStamp>2020-07-10T13:29:10</SummaryTimeStamp>
+  <SummaryTimeStamp>2020-07-10T15:17:20</SummaryTimeStamp>
   <SavedFilePath>D:/Documents/Desktop/MIPS/Lab4/iseconfig/TOP_single_CPU.xreport</SavedFilePath>
   <ImplementationReportsDirectory>D:/Documents/Desktop/MIPS/Lab4\</ImplementationReportsDirectory>
   <DateInitialized>2020-07-09T02:25:42</DateInitialized>
