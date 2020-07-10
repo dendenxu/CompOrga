@@ -12,7 +12,7 @@ add $t3, $t3, $t1
 # or $t3, $zero, $t5
 
 
-beq $t3, $t4, 1
-j   4
+beq $t3, $t4, 4
+j   16
 sw  $t2, 8($t0)
 j   0
