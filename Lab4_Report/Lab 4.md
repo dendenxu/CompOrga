@@ -57,7 +57,7 @@
 
 ### 组织结构图
 
-![page0](C:\Users\74259\Desktop\page0.png)
+![page0](..\page0.png)
 
 
 
