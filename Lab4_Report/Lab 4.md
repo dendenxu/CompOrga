@@ -748,7 +748,7 @@ MEMORY_INITIALIZATION_VECTOR =
 
 * 实验截图：
 
-  ![image-20200710203738148](Lab 4.assets/image-20200710203738148.png)![image-20200710204133905](Lab 4.assets/image-20200710204133905.png)
+  <img src="Lab 4.assets/image-20200710203738148.png"><img src="Lab 4.assets/image-20200710204133905.png">
 
   图1：PC = 2，LED第3灯亮
 
@@ -768,7 +768,7 @@ MEMORY_INITIALIZATION_VECTOR =
 
 * 实验截图：
 
-  ![image-20200710203757788](Lab 4.assets/image-20200710203757788.png)![image-20200710204206882](Lab 4.assets/image-20200710204206882.png)
+  <img src="Lab 4.assets/image-20200710203757788.png"><img src="Lab 4.assets/image-20200710204206882.png">
 
   图1：PC = 3，LED第1灯亮
 
@@ -788,7 +788,7 @@ MEMORY_INITIALIZATION_VECTOR =
 
 * 实验截图：
 
-  ![image-20200710203825912](Lab 4.assets/image-20200710203825912.png)![image-20200710204244338](Lab 4.assets/image-20200710204244338.png)
+  <img src="Lab 4.assets/image-20200710203825912.png"><img src="Lab 4.assets/image-20200710204244338.png">
 
   图1：PC = 4，LED第1灯亮
 
@@ -808,7 +808,7 @@ MEMORY_INITIALIZATION_VECTOR =
 
 * 实验截图：
 
-  ![image-20200710203841916](Lab 4.assets/image-20200710203841916.png)![image-20200710204544925](Lab 4.assets/image-20200710204544925.png)
+  <img src="Lab 4.assets/image-20200710203841916.png"><img src="Lab 4.assets/image-20200710204544925.png">
 
   图1：PC = 5，LED第1灯亮
 
