@@ -864,7 +864,7 @@ Run 8
 
 * 实验截图：
 
-  ![image-20200710211755036](Lab4.assets/image-20200710211755036.png)![image-20200710211816897](Lab4.assets/image-20200710211816897.png)
+  <img src="Lab4.assets/image-20200710211755036.png" alt="image-20200710211755036" style="zoom:80%;" /><img src="Lab4.assets/image-20200710211755036.png" alt="image-20200710211755036" style="zoom:80%;" />
 
 Run 9
 
@@ -878,8 +878,7 @@ Run 9
 
 * 实验截图：
 
-
-![image-20200710211816897](Lab4.assets/image-20200710211816897.png)<img src = "Lab4.assets/image-20200710211848688.png">
+<img src="Lab4.assets/image-20200710211816897.png" alt="image-20200710211816897" style="zoom:80%;" /><img src = "Lab4.assets/image-20200710211848688.png"><img src="Lab4.assets/image-20200710211816897.png" alt="image-20200710211816897" style="zoom:80%;" /><img src = "Lab4.assets/image-20200710211848688.png">
 
 ### 运算结果
 
@@ -891,7 +890,7 @@ $$
 
 我们显示的是`$2`寄存器的值：
 
-<img src="Lab4.assets/image-20200710194809272.png" alt="image-20200710194809272" style="zoom:50%;" /><img src="Lab4.assets/image-20200710195030024.png" alt="image-20200710195030024" style="zoom:40%;" /><img src="Lab4.assets/image-20200710195044488.png" alt="image-20200710195044488" style="zoom:50%;" />
+<img src="Lab4.assets/image-20200710194809272.png" alt="image-20200710194809272" style="zoom:40%;" /><img src="Lab4.assets/image-20200710195030024.png" alt="image-20200710195030024" style="zoom:35%;" /><img src="Lab4.assets/image-20200710195044488.png" alt="image-20200710195044488" style="zoom:34%;" />
 
 在循环到100次后程序算出了求和的总结果：
 
@@ -1022,6 +1021,30 @@ MEMORY_INITIALIZATION_VECTOR =
 
 `./ipcore_dir/ipcore_dir/machine_code.coe`：指令机器码coe文件
 
+```assembly
+MEMORY_INITIALIZATION_RADIX  = 2;
+MEMORY_INITIALIZATION_VECTOR = 
+10001100000000010000000000000000,
+10001100000000100000000000001100,
+10001100000001000000000000000100,
+00000000001000100001100000100000,
+00000000011000100001000000100000,
+00000000011000010001100000100000,
+00010000100000110000000000000001,
+00001000000000000000000000000100,
+10101100000000100000000000001000,
+00001000000000000000000000000000;
+```
+
 `./ipcore_dir/ipcore_dir/memory_store.coe`：内存初始化coe文件
+
+```assembly
+MEMORY_INITIALIZATION_RADIX  = 2;
+MEMORY_INITIALIZATION_VECTOR = 
+00000000000000000000000000000001, 
+00000000000000000000000001100101,
+00000000000000000000000000000000,
+00000000000000000000000000000000;
+```
 
 注：我们同时提供了使用t类型寄存器相关的指令机器码文件，可在同一目录下查询得到。
