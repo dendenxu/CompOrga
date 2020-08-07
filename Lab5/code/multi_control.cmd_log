@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj 3180105504_multi_cpu -o "D:/ISE Project/CO_Lab5/code/multi_control.tfi" -lib work "D:/ISE Project/CO_Lab5/code/v//multi_control.v" -module multi_control -template E:/app/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
