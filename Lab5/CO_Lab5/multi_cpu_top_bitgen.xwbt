@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\HASEE\source\repos\MIPS\Lab5\code\multi_cpu_top.ncd
+OUTFILE=C:\Users\HASEE\source\repos\MIPS\Lab5\code\multi_cpu_top.bit
+FAMILY=Kintex7
+PART=xc7k160t-2lffg676
+WORKINGDIR=C:\Users\HASEE\source\repos\MIPS\Lab5\code
+LICENSE=WebPack
+USER_INFO=__0_0_0

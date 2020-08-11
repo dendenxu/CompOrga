@@ -1,6 +1,0 @@
-xst -intstyle ise -ifn "D:/ISE Project/CO_Lab5/code/multi_cpu_top.xst" -ofn "D:/ISE Project/CO_Lab5/code/multi_cpu_top.syr" 
-ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc "others/multi_cpu_top.ucf" -p xc7k160t-ffg676-2L "multi_cpu_top.ngc" multi_cpu_top.ngd  
-map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o multi_cpu_top_map.ncd multi_cpu_top.ngd multi_cpu_top.pcf 
-par -w -intstyle ise -ol high -mt off multi_cpu_top_map.ncd multi_cpu_top.ncd multi_cpu_top.pcf 
-trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml multi_cpu_top.twx multi_cpu_top.ncd -o multi_cpu_top.twr multi_cpu_top.pcf 
-bitgen -intstyle ise -f multi_cpu_top.ut multi_cpu_top.ncd 
