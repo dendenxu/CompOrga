@@ -2,6 +2,7 @@
 
 module multi_control(
 	clk,
+	rst,
 	OP,
 	PCWriteCond,
 	PCWrite,
@@ -19,7 +20,7 @@ module multi_control(
 	LED
 );
 
-	input wire clk;
+	input wire clk, rst;
 	input wire [5:0] OP;
 	output wire PCWriteCond;
 	output wire PCWrite;
@@ -68,9 +69,11 @@ module multi_control(
 	assign LED[3] = (state == 4'd3) || (state == 4'd5) || (state == 4'd7);
 	assign LED[4] = (state == 4'd4);
 	
-	always @(posedge clk)
+	always @(posedge clk or posedge rst)
 	begin
-		if (state == 4'd0)
+		if (rst)
+			state <= 4'd0;
+		else if (state == 4'd0)
 			state <= 4'd1;
 		else if (state == 4'd1)
 		begin

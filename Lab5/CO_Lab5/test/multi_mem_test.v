@@ -13,7 +13,7 @@ module multi_mem_test;
 	wire [31:0] douta;
 
 	// Instantiate the Unit Under Test (UUT)
-	multi_memory uut (
+	multi_memory_core uut (
 		.clka(clka), 
 		.rea(rea), 
 		.wea(wea), 

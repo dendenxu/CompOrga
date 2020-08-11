@@ -7,6 +7,7 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/multi_cpu_top C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|v|multi_cpu_top.v/dispnumM - dispnum/XLXI_3 - dispsync_MUSER_dispnum</ClosedNode>
          <ClosedNode>/multi_cpu_top C:|Users|HASEE|source|repos|MIPS|Lab5|code|v|multi_cpu_top.v/dispnumM - dispnum</ClosedNode>
          <ClosedNode>/multi_cpu_top C:|Users|HASEE|source|repos|MIPS|Lab5|code|v|multi_cpu_top.v/memory - multi_memory</ClosedNode>
          <ClosedNode>/multi_cpu_top D:|ISE Project|CO_Lab5|code|multi_cpu_top.v/d0 - dispnum</ClosedNode>
@@ -14,13 +15,13 @@
          <ClosedNode>/multi_cpu_top D:|ISE Project|CO_Lab5|code|v|multi_cpu_top.v/dispnumM - dispnum</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>multi_cpu_top (C:/Users/HASEE/source/repos/MIPS/Lab5/code/v/multi_cpu_top.v)</SelectedItem>
+         <SelectedItem>multi_cpu_top (C:/Users/HASEE/source/repos/MIPS/Lab5/CO_Lab5/v/multi_cpu_top.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001ba000000020000000000000000000000000200000064ffffffff000000810000000300000002000001ba0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>multi_cpu_top (C:/Users/HASEE/source/repos/MIPS/Lab5/code/v/multi_cpu_top.v)</CurrentItem>
+      <CurrentItem>multi_cpu_top (C:/Users/HASEE/source/repos/MIPS/Lab5/CO_Lab5/v/multi_cpu_top.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -32,13 +33,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Generate Programming File</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >4</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000e7000000010000000100000000000000000000000064ffffffff000000810000000000000001000000e70000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Generate Programming File</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -73,42 +74,54 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/antijitter_test C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|test|pdbebounce_test.v</ClosedNode>
          <ClosedNode>/antijitter_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|test|pdbebounce_test.v</ClosedNode>
+         <ClosedNode>/antijitter_test D:|Temp|CO_Lab5|test|pdbebounce_test.v</ClosedNode>
+         <ClosedNode>/multi_control_test C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|multi_control_test.v</ClosedNode>
          <ClosedNode>/multi_control_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|multi_control_test.v</ClosedNode>
+         <ClosedNode>/multi_control_test D:|Temp|CO_Lab5|test|multi_control_test.v</ClosedNode>
+         <ClosedNode>/multi_cpu_top C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|v|multi_cpu_top.v</ClosedNode>
          <ClosedNode>/multi_cpu_top C:|Users|HASEE|source|repos|MIPS|Lab5|code|v|multi_cpu_top.v</ClosedNode>
          <ClosedNode>/multi_cpu_top D:|ISE Project|CO_Lab5|code|multi_cpu_top.v</ClosedNode>
          <ClosedNode>/multi_cpu_top D:|ISE Project|CO_Lab5|code|v|multi_cpu_top.v</ClosedNode>
+         <ClosedNode>/multi_mem_test C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|test|multi_mem_test.v</ClosedNode>
          <ClosedNode>/multi_mem_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|test|multi_mem_test.v</ClosedNode>
          <ClosedNode>/multi_mem_test D:|ISE Project|CO_Lab5|code|test|multi_mem_test.v</ClosedNode>
          <ClosedNode>/multi_mem_test D:|ISE Project|CO_Lab5|code|test|multi_mem_test.v/uut - multi_memory</ClosedNode>
+         <ClosedNode>/multi_mem_test D:|Temp|CO_Lab5|test|multi_mem_test.v</ClosedNode>
+         <ClosedNode>/multi_mux_test C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|test|multi_mux_test.v</ClosedNode>
          <ClosedNode>/multi_mux_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|test|multi_mux_test.v</ClosedNode>
          <ClosedNode>/multi_mux_test D:|ISE Project|CO_Lab5|code|test|multi_mux_test.v</ClosedNode>
+         <ClosedNode>/multi_signext_test C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|test|multi_signext_test.v</ClosedNode>
          <ClosedNode>/multi_signext_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|test|multi_signext_test.v</ClosedNode>
          <ClosedNode>/multi_signext_test D:|ISE Project|CO_Lab5|code|test|multi_signext_test.v</ClosedNode>
+         <ClosedNode>/multi_top_test C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|multi_top_test.v</ClosedNode>
+         <ClosedNode>/multi_top_test C:|Users|HASEE|source|repos|MIPS|Lab5|CO_Lab5|test|multi_top_test.v</ClosedNode>
          <ClosedNode>/multi_top_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|multi_top_test.v</ClosedNode>
          <ClosedNode>/multi_top_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|multi_top_test.v/uut - multi_cpu_top</ClosedNode>
          <ClosedNode>/multi_top_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|multi_top_test.v/uut - multi_cpu_top/dispnumM - dispnum</ClosedNode>
          <ClosedNode>/multi_top_test C:|Users|HASEE|source|repos|MIPS|Lab5|code|multi_top_test.v/uut - multi_cpu_top/memory - multi_memory</ClosedNode>
+         <ClosedNode>/multi_top_test D:|Temp|CO_Lab5|test|multi_top_test.v/uut - multi_cpu_top</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Unassigned User Library Modules</SelectedItem>
+         <SelectedItem>xc7k160t-2Lffg676</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000149000000020000000000000000000000000200000064ffffffff000000810000000300000002000001490000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000121000000020000000000000000000000000200000064ffffffff000000810000000300000002000001210000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Unassigned User Library Modules</CurrentItem>
+      <CurrentItem>xc7k160t-2Lffg676</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -129,13 +142,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Simulate Behavioral Model</CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000012d0000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
@@ -171,12 +184,12 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
 </Project>

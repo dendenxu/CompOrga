@@ -115,6 +115,7 @@ module multi_cpu_top(
 	// multi cpu控制模块
 	multi_control control (
 		.clk(clk), 
+		.rst(rst),
 		.OP(InsReg[31:26]), 
 		.PCWriteCond(PCWriteCond), 
 		.PCWrite(PCWrite), 
@@ -153,12 +154,12 @@ module multi_cpu_top(
 	multi_memory_core memory_core(.clk(clk), .a(MemAddr_word[9:0]), .we(MemWrite), .d(BReg), .spo(MemData));
 
 	// 单独寄存器模块
-	multi_register_EN #(.N(32)) instruction_register(.clk(clk), .EN(IRWrite), .data_in(MemData), .data_out(InsReg));
-	multi_register_EN #(.N(32)) memory_register(.clk(clk), .EN(MemRead), .data_in(MemData), .data_out(MemDataReg));
-	multi_register_EN #(.N(32)) ALU_register(.clk(clk), .EN(1'b1), .data_in(ALUResult), .data_out(ALUOutReg));
-	multi_register_EN #(.N(32)) PC_register(.clk(clk), .EN(PCCtrl), .data_in(PCIn), .data_out(PCOutReg));
-	multi_register_EN #(.N(32)) A_register(.clk(clk), .EN(1'b1), .data_in(ReadRegDataA), .data_out(AReg));
-	multi_register_EN #(.N(32)) B_register(.clk(clk), .EN(1'b1), .data_in(ReadRegDataB), .data_out(BReg));
+	multi_register_EN #(.N(32)) instruction_register(.clk(clk), .rst(rst), .EN(IRWrite), .data_in(MemData), .data_out(InsReg));
+	multi_register_EN #(.N(32)) memory_register(.clk(clk), .rst(rst), .EN(MemRead), .data_in(MemData), .data_out(MemDataReg));
+	multi_register_EN #(.N(32)) ALU_register(.clk(clk), .rst(rst), .EN(1'b1), .data_in(ALUResult), .data_out(ALUOutReg));
+	multi_register_EN #(.N(32)) PC_register(.clk(clk), .rst(rst), .EN(PCCtrl), .data_in(PCIn), .data_out(PCOutReg));
+	multi_register_EN #(.N(32)) A_register(.clk(clk), .rst(rst), .EN(1'b1), .data_in(ReadRegDataA), .data_out(AReg));
+	multi_register_EN #(.N(32)) B_register(.clk(clk), .rst(rst), .EN(1'b1), .data_in(ReadRegDataB), .data_out(BReg));
 
 	// 多路选择器模块
 	multi_mux2 #(.N(12)) mem_addr_mux(.A(PCOutReg[11:0]), .B(ALUOutReg[11:0]), .Ctrl(IorD), .S(MemAddr_byte));

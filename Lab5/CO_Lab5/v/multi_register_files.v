@@ -26,10 +26,42 @@ module multi_register_files(
 	assign DataC = mem[AddrC];
 	
 	always @(posedge clk or posedge rst)
-		if (rst == 1'b1)
-			mem[0] = {32{1'b0}};
+		if (rst)
+		begin
+			mem[0]  = {32{1'b0}};
+			mem[1]  = {32{1'b0}};
+			mem[2]  = {32{1'b0}};
+			mem[3]  = {32{1'b0}};
+			mem[4]  = {32{1'b0}};
+			mem[5]  = {32{1'b0}};
+			mem[6]  = {32{1'b0}};
+			mem[7]  = {32{1'b0}};
+			mem[8]  = {32{1'b0}};
+			mem[9]  = {32{1'b0}};
+			mem[10] = {32{1'b0}};
+			mem[11] = {32{1'b0}};
+			mem[12] = {32{1'b0}};
+			mem[13] = {32{1'b0}};
+			mem[14] = {32{1'b0}};
+			mem[15] = {32{1'b0}};
+			mem[16] = {32{1'b0}};
+			mem[17] = {32{1'b0}};
+			mem[18] = {32{1'b0}};
+			mem[19] = {32{1'b0}};
+			mem[20] = {32{1'b0}};
+			mem[21] = {32{1'b0}};
+			mem[22] = {32{1'b0}};
+			mem[23] = {32{1'b0}};
+			mem[24] = {32{1'b0}};
+			mem[25] = {32{1'b0}};
+			mem[26] = {32{1'b0}};
+			mem[27] = {32{1'b0}};
+			mem[28] = {32{1'b0}};
+			mem[29] = {32{1'b0}};
+			mem[30] = {32{1'b0}};
+			mem[31] = {32{1'b0}};
+		end
 		else if (WriteEN)
-		//	mem[WriteAddr] = (WriteAddr == {5{1'b0}}) ? {32{1'b0}} : WriteData; 
 			mem[WriteAddr] = WriteData;
 
 endmodule
