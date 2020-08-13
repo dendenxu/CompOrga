@@ -1,0 +1,11 @@
+本工程为计算机组成-Lab5（多周期CPU设计）
+--工程目录为 .\CO_Lab5\
+--工程文件为 .\CO_Lab5\3180105504_multi_cpu.xise，综合运行版本为Xilinx ISE 14.7(nt64)
+--编译方法为：打开工程文件，设置multi_cpu_top.v为顶层，双击Generate Programming File进行完整的编译过程
+--Verilog模块代码目录为 .\CO_Lab5\v\
+--Verilog Simulation测试代码目录为 .\CO_Lab5\test\
+--IP核代码目录为 .\CO_Lab5\ipcore_dir\
+--MIPS汇编码位置为 .\CO_Lab5\ipcore_dir\coe\memory_code.asm
+--MIPS机器码的COE文件在 .\CO_Lab5\ipcore_dir\coe\memory_code.coe
+--UCF文件位于 .\CO_Lab5\others\multi_cpu_top.ucf
+--可直接Download运行的二进制文件在 .\CO_Lab5\multi_cpu_top.bit
